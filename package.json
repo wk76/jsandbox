@@ -1,0 +1,12 @@
+{
+  "name": "JSandbox",
+  "version": "0.1.0",
+  "description": "Javascript Learning",
+  "author": "Andries Krause",
+  "scripts": {
+    "test": "tape test/*-test.js | tap-spec"
+  },
+  "dependencies": {
+    "moment": "^2.18.1"
+  }
+}
