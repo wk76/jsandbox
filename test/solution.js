@@ -7,49 +7,22 @@ let userArray = [
     { "name": "Wouter", "surname": "Couvaras", "id": "6789" }
 ];
 
-//console.log(userArray[0]["id"])
-
-let userMap = [];
-for (let user in userArray) {
-    let key = userArray[user]["id"];
-    let name = userArray[user]["name"];
-    let surname = userArray[user]["surname"];
-    let obj = {}
-
-    obj[key] = { id: key, name: name, surname: surname };
-    userMap.push(obj);
-
+/*
+let userMap = {};
+for (let user of userArray) {
+    userMap[user.id] = user;
 }
 console.log(userMap);
-
-
-/*
-for (let i in userArray) {
-let key = "\"" + userArray[i]["id"] + "\"";
-let content = "\"id\": \"" + userArray[i]["id"] + "\", \"name\": \"" + userArray[i]["name"] + "\", \"surname\": \"" + userArray[i]["surname"] +"\"";
-let obj = key + ": {" + content + "}";
-console.log(obj);
-}
 */
 
-/*
-let userMap = {
-    "1234": {
-        "id": "1234",
-        "name": "Willie",
-        "surname": "Krause"
-    },
-    "4567": {
-        "id": "4567",
-        "name": "Andries",
-        "surname": "Krause"
-    },
-    "6789": {
-        "id": "6789",
-        "name": "Wouter",
-        "surname": "Couvaras"
+
+function convertToMap(arrayData, uniqueIdField) {
+    let userMap = {};
+    for (let obj of arrayData) {
+        userMap[obj.uniqueIdField] = obj;
     }
+    return userMap;
 }
 
-//console.log(userMap);
-*/
+let results = convertToMap(userArray, "id")
+console.log(results);
