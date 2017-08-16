@@ -15,22 +15,24 @@ function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
     let reply = {};
 
     for (let obj of arrayData)
-        // VALID KEY FIELD EXISTS
-        if (obj[uniqueIdField] && obj[uniqueIdField] != " ") {
+        // VALIDATE KEY FIELD
+        if (obj[uniqueIdField] && obj[uniqueIdField] != " ") 
+        // VALID KEY FIELD
+            {
             userMap[obj[uniqueIdField]] = obj;
             reply = userMap;
         }
-        // "report_reply" PARAMETER FOR ERROR HANDLING TYPE
+        // INVALID KEY FIELD: "report_reply" PARAMETER FOR ERROR HANDLING TYPE
         else if (errorHandlingType == "report_reply") {
             let error = { message: "An object without a unique ID field was encountered, and ignored", obj: obj };
             errors.push(error);
             reply = { map: userMap, errors: errors };
         }
-        // "fatal_exit" PARAMETER FOR ERROR HANDLING TYPE
+        // IVALID KEY FIELD: "fatal_exit" PARAMETER FOR ERROR HANDLING TYPE
         else if (errorHandlingType == "fatal_exit") {
             throw new Error("An object without a unique ID field was encountered, and ignored");
         }
-        // "report_log" PARAMETER AND DEFAULT/NOT-SPECIFIED FOR ERROR HANDLING TYPE
+        //  INVALID KEY FIELD: "report_log" PARAMETER AND DEFAULT/NOT-SPECIFIED FOR ERROR HANDLING TYPE
         else {
             console.log("An object without a unique ID field was encountered, and ignored");
             console.log(obj);
