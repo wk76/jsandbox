@@ -10,7 +10,6 @@ let userArray = [
 ];
 
 
-
 function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
 
     let userMap = {};
@@ -35,7 +34,6 @@ function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
                 errors.push(error);
                 delete userMap[obj[uniqueIdField]];
             }
-
             reply = { map: userMap, errors: errors };
         }
         else if (errorHandlingType == "fatal_exit") {
@@ -43,7 +41,6 @@ function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
             { throw new Error("An object without a unique ID field was encountered and ignored"); }
             else if ((obj[uniqueIdField] in userMap))
             { throw new Error("Objects with duplicate IDs were encountered and ignored"); }
-
         }
         else {
             if (obj[uniqueIdField] == undefined || obj[uniqueIdField] == " ") {
