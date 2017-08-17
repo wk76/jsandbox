@@ -4,23 +4,24 @@
 let userArray = [
     { "name": "Willie", "surname": "Krause", "id": "1234" },
     { "name": "Andries", "surname": "Krause", "id": "4567" },
-    { "name": "Wouter", "surname": "Couvaras", "id": "6789" },
-    { "name": "Piet", "surname": "Pompies" }
+    { "name": "Piet", "surname": "Pompies" },
+    { "name": "Wouter", "surname": "Couvaras", "id": "6789" }
+    
 ];
 
 
 function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
     let userMap = {};
     let errors = [];
-    let reply = {};
+    //let reply = {};
 
     for (let obj of arrayData)
         // VALIDATE KEY FIELD
-        if (obj[uniqueIdField] && obj[uniqueIdField] != " ") 
+        if (obj[uniqueIdField] && obj[uniqueIdField] != " ")
         // VALID KEY FIELD
-            {
+        {
             userMap[obj[uniqueIdField]] = obj;
-            reply = userMap;
+            let reply = userMap;
         }
         // INVALID KEY FIELD: "report_reply" PARAMETER FOR ERROR HANDLING TYPE
         else if (errorHandlingType == "report_reply") {
@@ -40,7 +41,7 @@ function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
     return reply;
 }
 
-let results = convertToMap(userArray, "id", "report_log")
+let results = convertToMap(userArray, "id", "report_reply")
 console.log(results);
 
 
