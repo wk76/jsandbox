@@ -37,11 +37,12 @@ function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
         else {
             console.log("An object without a unique ID field was encountered, and ignored");
             console.log(obj);
+            reply = userMap;
         }
     return reply;
 }
 
-let results = convertToMap(userArray, "id", "report_reply")
+let results = convertToMap(userArray, "id", "report_log")
 console.log(results);
 
 
