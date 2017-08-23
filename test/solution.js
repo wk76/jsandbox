@@ -64,4 +64,3 @@ function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
 
 let results = convertToMap(userArray, "id", "report_log")
 console.log(results);
-
