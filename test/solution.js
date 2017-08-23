@@ -15,45 +15,50 @@ function convertToMap(arrayData, uniqueIdField, errorHandlingType) {
     let userMap = {};
     let errors = [];
 
-    let reply = userMap;
+    for (let obj of arrayData) {
 
+        if (obj[uniqueIdField]) {
 
-    if (errorHandlingType == "report_reply") {
-        reply = { map: userMap, errors: errors }
+            // uniqueIdField is a valid value
+            
+            if (!userMap.hasOwnProperty(obj[uniqueIdField])) {
+
+                // all good
+                userMap[obj[uniqueIdField]] = obj;
+
+            } else {
+
+                // the value of uniqueIdField already exists in the map, so this is a duplicate
+                if (errorHandlingType == "fatal_exit") {
+                    throw new Error("Objects with duplicate IDs were encountered and ignored"); 
+                } else if (errorHandlingType == "report_reply") {
+                    errors.push({ message: "Objects with duplicate IDs were encountered and ignored", obj: obj });
+                } else {
+                    console.log("Objects with duplicate IDs were encountered and ignored. Duplicate ID: " + obj[uniqueIdField]);
+                }
+
+            }
+
+        } else {
+
+            // uniqueIdField is NOT a valid value 
+            if (errorHandlingType == "fatal_exit") {
+                throw new Error("An object without a unique ID field was encountered and ignored"); 
+            } else if (errorHandlingType == "report_reply") {
+                errors.push({ message: "An object without a unique ID field was encountered and ignored", obj: obj });
+            } else {
+                console.log("An object without a unique ID field was encountered and ignored");
+            }
+
+        }
+
     }
 
-    for (let obj of arrayData)
-        if (obj[uniqueIdField] && obj[uniqueIdField] != " " && !(obj[uniqueIdField] in userMap)) {
-            userMap[obj[uniqueIdField]] = obj;
-        } else if (errorHandlingType == "report_reply") {
-            if (obj[uniqueIdField] == undefined || obj[uniqueIdField] == " ") {
-                let error = { message: "An object without a unique ID field was encountered and ignored", obj: obj };
-                errors.push(error);
-            } else if ((obj[uniqueIdField] in userMap)) {
-                let error = { message: "Objects with duplicate IDs were encountered and ignored", obj: obj };
-                errors.push(error);
-                delete userMap[obj[uniqueIdField]];
-            }
-            reply = { map: userMap, errors: errors };
-        }
-        else if (errorHandlingType == "fatal_exit") {
-            if (obj[uniqueIdField] == undefined || obj[uniqueIdField] == " ")
-            { throw new Error("An object without a unique ID field was encountered and ignored"); }
-            else if ((obj[uniqueIdField] in userMap))
-            { throw new Error("Objects with duplicate IDs were encountered and ignored"); }
-        }
-        else {
-            if (obj[uniqueIdField] == undefined || obj[uniqueIdField] == " ") {
-                console.log("An object without a unique ID field was encountered and ignored:");
-                console.log(obj);
-            } else if ((obj[uniqueIdField] in userMap)) {
-                console.log("Objects with duplicate IDs were encountered and ignored. Duplicate ID:");
-                console.log(obj[uniqueIdField]);
-                delete userMap[obj[uniqueIdField]];
-            }
-            reply = userMap;
-        }
-    return reply;
+    if (errorHandlingType == "report_reply") {
+        return { map: userMap, errors: errors }
+    } else {
+        return userMap;
+    }
 
 }
 
