@@ -1,3 +1,97 @@
 [
-
+    {
+        "fsbCode": "598",
+        "name": "BACHELOR OF COMMERCE HONOURS",
+        "institutionId": "1",
+        "institution": "UNISA",
+        "saqaId": "5687",
+        "nqfLevel": "8",
+        "credits": "120",
+        "fsbCategory": "1",
+        "avodaId": "598-1-5687",
+        "isFsbRegistered": true,
+        "fsbSubCategories": {
+            "1": "G",
+            "2": "G"
+        }
+    },
+    {
+        "fsbCode": "598",
+        "name": "BACHELOR OF COMMERCE HONOURS",
+        "institutionId": "7",
+        "institution": "UNIVERSITY OF THE WITWATERSRAND",
+        "saqaId": "9851",
+        "nqfLevel": "7",
+        "credits": "120",
+        "fsbCategory": "1",
+        "avodaId": "598-7-9851",
+        "isFsbRegistered": true,
+        "fsbSubCategories": {
+            "11": "G"
+        }
+    },
+    {
+        "fsbCode": "526",
+        "name": "BACHELOR OF COMMERCE HONOURS FINANCIAL MANAGEMENT",
+        "institutionId": "13",
+        "institution": "RAU",
+        "saqaId": "18974",
+        "nqfLevel": "7",
+        "credits": "160",
+        "fsbCategory": "1",
+        "avodaId": "526-13-18974",
+        "isFsbRegistered": true,
+        "fsbSubCategories": {
+            "1": "G",
+            "2": "G",
+            "3": "G",
+            "16": "G",
+            "17": "G",
+            "18": "G"
+        }
+    },
+    {
+        "fsbCode": "593",
+        "name": "BACHELOR OF COMMERCE HONOURS INSURANCE AND RISK MANAGEMENT",
+        "institutionId": "29",
+        "institution": "MIDLANDS STATE UNIVERSITY",
+        "saqaId": "FSB0132",
+        "nqfLevel": "0",
+        "credits": "0",
+        "fsbCategory": "1",
+        "avodaId": "593-29-FSB0132",
+        "isFsbRegistered": true,
+        "fsbSubCategories": {
+            "7": "G"
+        }
+    },
+    {
+        "fsbCode": "313",
+        "name": "BACHELOR OF COMMERCE HONOURS: ACCOUNTING",
+        "institutionId": "13",
+        "institution": "RAU",
+        "saqaId": "3093",
+        "nqfLevel": "7",
+        "credits": "160",
+        "fsbCategory": "1",
+        "avodaId": "313-13-3093",
+        "isFsbRegistered": true,
+        "fsbSubCategories": {}
+    },
+    {
+        "fsbCode": "874",
+        "name": "BACHELOR OF COMMERCE HONOURS: ACTUARIAL SCIENCE",
+        "institutionId": "30",
+        "institution": "NATIONAL UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+        "saqaId": "FSB0229",
+        "nqfLevel": "0",
+        "credits": "0",
+        "fsbCategory": "1",
+        "avodaId": "874-30-FSB0229",
+        "isFsbRegistered": true,
+        "fsbSubCategories": {
+            "5": "G",
+            "14": "G"
+        }
+    }
 ]

@@ -1,0 +1,98 @@
+[{
+    "name": "Joe",
+    "surname": "Blogs",
+    "username": "jblogs",
+    "password": "Password 456+",
+    "email": "jblogs@host.com",
+    "idnumber": "6402077262088"
+},{
+    "name": "Piet",
+    "surname": "Verdriet",
+    "username": "pietie",
+    "password": "Password789",
+    "email": "pietie@sad.com",
+    "idnumber": "8302147262088",
+    "favoriteFood": ["kaas", "konfyt", "koeksusters", "koffie"]
+},{
+    "name": "W",
+    "surname": "K",
+    "username": "WK",
+    "password": "Password789",
+    "email": "wk@mail.com",
+    "idnumber": "8302147262088",
+    "favoriteFood": ["kaas", "konfyt", "koeksusters", "koffie"]
+},{
+    "name": "Sannie",
+    "username": "_sannie",
+    "password": "Password789",
+    "email": "sannie@sewesakkesout.co.za",
+    "staffNumber": "123",
+    "favoriteFood": ["salt", "pepper", "coffee"]
+},{
+    "name": "Koos",
+    "surname": "van der Merwe",
+    "username": "pietie",
+    "password": "Password789",
+    "email": "koos@google.com",
+    "idnumber": "8402147262678",
+    "favoriteFood": ["toast"]
+},{
+    "name": "Tebogo",
+    "surname": "van der Merwe",
+    "username": "te bogo",
+    "password": "Password789",
+    "email": "koos@google.com",
+    "idnumber": "8902147262678"
+},{
+
+    "name": "Tebogo",
+    "surname": "van der Merwe",
+    "username": "tebogo",
+    "password": "Password789",
+    "email": "koos@google.com",
+    "idnumber": "89 02147262678"
+},{
+    "name": "Wouter",
+    "surname": "Couvaras",
+    "username": "wouter",
+    "password": "letmein",
+    "email": "wouter@acme.com",
+    "favoriteFood": ["kauai wrap", "coffee"]
+},{
+    "name": "Willie",
+    "surname": "Krause",
+    "username": "_willie",
+    "password": "letmein",
+    "email": "willie@acme.com",
+    "favoriteFood": ["salad", "koeksusters", "wine"],
+    "roles": {
+        "ui": ["classroom","courses","events","users","groups"],
+        "api": ["qa"]
+    }
+},{
+    "name": "Colin",
+    "surname": "Elliot",
+    "username": "colin",
+    "password": "letmein",
+    "email": "colin@acme.com"
+},{
+    "name": "Jeremy",
+    "surname": "Kerchhof",
+    "username": "jeremy",
+    "password": "letmein",
+    "email": "jeremy@acme.com"
+},{
+    "name": "Izak",
+    "surname": "de Wet",
+    "username": "izak",
+    "password": "letmein",
+    "email": "izak@acme.com"
+},{
+    "name": "Tebogo",
+    "surname": "van der Merwe",
+    "username": "tebogo",
+    "password": "Password789",
+    "email": "tebogo@google.com",
+    "idnumber": "8902147262678",
+    "active": false
+}]
