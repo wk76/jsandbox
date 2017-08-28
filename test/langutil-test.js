@@ -1,6 +1,7 @@
 
 var test = require('tape').test;
 
+
 let convertUtil = require('../lib/lang');
 
 let userData1 = require('./data/users.json');
@@ -9,7 +10,7 @@ let qualificationData = require('./data/qualifications.json');
 
 
 
-test('Test ONE', function(assert) {
+test('Test Map Conversion of userData1', function(assert) {
 
     let results = convertUtil.convertToMap(userData1, "id", "report_reply");
     
@@ -24,7 +25,7 @@ test('Test ONE', function(assert) {
 });
 
 
-test('Test TWO', function (assert) {
+test('Test Map Conversion of qualificationData', function (assert) {
 
     let results = convertUtil.convertToMap(qualificationData, "avodaId", "report_reply");
     
@@ -42,7 +43,28 @@ test('Test TWO', function (assert) {
 
 
 
+test('Test Map Conversion for userData2', function(assert) {
+
+    let results = convertUtil.convertToMap(userData2, "idnumber", "report_reply");
+
+    let mapKeys = Object.keys(results.map);
+
+    assert.equal(4, mapKeys.length, "Map has the correct size");
+    assert.equal(13,results.map["6402077262088"].idnumber.length, "ID number is valid length")
+
+    assert.end();
+
+});
+
+
+
+
+
+
+
 /*
+Manual type of tests
+
 
 let results1 = convertUtil.convertToMap(userData1, "id", "report_reply");
 
