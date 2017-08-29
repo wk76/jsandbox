@@ -2,7 +2,7 @@
 var test = require('tape').test;
 
 
-let convertUtil = require('../lib/lang');
+let langUtil = require('../lib/lang');
 
 let userData1 = require('./data/users.json');
 let userData2 = require('./data/users2.json');
@@ -12,7 +12,7 @@ let qualificationData = require('./data/qualifications.json');
 
 test('Test Map Conversion of userData1', function(assert) {
 
-    let results = convertUtil.convertToMap(userData1, "id", "report_reply");
+    let results = langUtil.convertToMap(userData1, "id", "report_reply");
     
     let mapKeys = Object.keys(results.map);
 
@@ -24,10 +24,9 @@ test('Test Map Conversion of userData1', function(assert) {
 
 });
 
-
 test('Test Map Conversion of qualificationData', function (assert) {
 
-    let results = convertUtil.convertToMap(qualificationData, "avodaId", "report_reply");
+    let results = langUtil.convertToMap(qualificationData, "avodaId", "report_reply");
     
     let mapKeys = Object.keys(results.map);
 
@@ -39,18 +38,18 @@ test('Test Map Conversion of qualificationData', function (assert) {
 
 });
 
-
-
-
-
 test('Test Map Conversion for userData2', function(assert) {
 
-    let results = convertUtil.convertToMap(userData2, "idnumber", "report_reply");
+    let results = langUtil.convertToMap(userData2, "idnumber", "report_reply");
 
     let mapKeys = Object.keys(results.map);
 
     assert.equal(4, mapKeys.length, "Map has the correct size");
-    assert.equal(13,results.map["6402077262088"].idnumber.length, "ID number is valid length")
+    assert.equal(13,results.map["6402077262088"].idnumber.length, "ID number is valid length");
+
+    //for (let key of mapKeys) {
+    //    let user = results.map[key];
+    //}
 
     assert.end();
 
@@ -66,7 +65,7 @@ test('Test Map Conversion for userData2', function(assert) {
 Manual type of tests
 
 
-let results1 = convertUtil.convertToMap(userData1, "id", "report_reply");
+let results1 = langUtil.convertToMap(userData1, "id", "report_reply");
 
 let mapKeys = Object.keys(results1.map);
 let expectedDuplicateErrorFound = false;
@@ -107,7 +106,7 @@ if (results1.map["1234"]) {
 }
 
 
-let results2 = convertUtil.convertToMap(qualificationData, "avodaId", "report_reply");
+let results2 = langUtil.convertToMap(qualificationData, "avodaId", "report_reply");
 
 let mapKeys2 = Object.keys(results2.map);
 let expectedDuplicateErrorFound2 = false;

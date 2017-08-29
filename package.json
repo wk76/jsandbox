@@ -5,9 +5,11 @@
   "author": "Andries Krause",
   "scripts": {
     "test": "tape test/langutil-test.js | tap-spec",
-    "test_backup": "tape test/*-test.js | tap-spec"
+    "test_backup": "tape test/*-test.js | tap-spec",
+    "async-test": "tape test/async-test.js | tap-spec"
   },
   "dependencies": {
+    "csvtojson": "^1.1.7",
     "moment": "^2.18.1"
   },
   "devDependencies": {
