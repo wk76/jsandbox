@@ -19,8 +19,9 @@ let printResults = function (resultSet, heading) {
 
 
 
-let durbanUsers = reporter.getUsersForGivenBranch('Atron Durban');
-printResults(durbanUsers, "USERS FOR DURBAN");
+reporter.getUsersForGivenBranch('Atron Durban').then((durbanUsers) => {
+    printResults(durbanUsers, "USERS FOR DURBAN");
+});
 
 let gautengUsers = reporter.getUsersForGivenBranch('Gauteng');
 printResults(gautengUsers, "USERS FOR GAUTENG");
