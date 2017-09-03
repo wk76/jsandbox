@@ -1,7 +1,7 @@
 
 let moment = require('moment');
 let langUtil = require('../lib/lang');
-let csvDataFile = "data/db.csv";
+let csvDataFile = "../data/db.csv";
 let jsonDataFile = require('../data/db.json');
 let dateFormat = "YYYY-MM-DD";
 
@@ -52,29 +52,66 @@ let reporter = {
     },
 
     getUsersForGivenSupervisor: function (supervisor) {
-        let reportOut = filterOn(getData(), "SUPERVISOR", supervisor);
-        return reportOut;
+        return new Promise((resolve, reject) => {
+                getDataAsync().then((data) => {
+                    let reportOut = filterOn(data, "supervisor", supervisor);
+                    resolve(reportOut);
+
+                });
+});
     },
 
     getUserCountRE5ObtainedForGivenBranch: function (branch) {
-        let userCount = 0, branchUsers = filterOn(getData(), "BRANCH", branch)
-        for (i of branchUsers) {
-            if (i["RE (5)"] === "YES")
-                userCount++;
-        }
-        return userCount;
+        return new Promise((resolve, reject) => {
+            getDataAsync().then((data) => {
+                let userCount = 0;
+                let branchUsers = filterOn(data, "branch", branch);
+                for (i of branchUsers) {
+                    if (i["re5"] === "YES")
+                        userCount++;
+                }
+                resolve(userCount);
+            });
+        });
     },
 
     getUserCountRE5NotObtainedForGivenBranch: function (branch) {
-        let userCount = 0, branchUsers = filterOn(getData(), "BRANCH", branch)
-        for (i of branchUsers) {
-            if (i["RE (5)"] !== "YES")
-                userCount++;
-        }
-        return userCount;
+        return new Promise((resolve, reject) => {
+            getDataAsync().then((data) => {
+                let userCount = 0;
+                let branchUsers = filterOn(data, "branch", branch);
+                for (i of branchUsers) {
+                    if (i["re5"] !== "YES")
+                        userCount++;
+                }
+                resolve(userCount);
+            });
+        });
     },
 
     getUsersEmployedBeforeDate: function (date) {
+        return new Promise((resolve, reject) => {
+            getDataAsync().then((data) => {
+                let users = [];
+                for (user of data) {
+                    let getValidDate = moment(user["employmentDate"], "YYYY-MM-DD");
+                    if (getValidDate.isValid()) {
+                        if (moment(user["employmentDate"]) < moment(date))
+                            users.push(user);
+                    }
+                }
+                resolve(users);
+            });
+        });
+ },
+
+
+
+
+
+
+/*
+    getUsersEmployedBeforeDate2: function (date) {
         let users = [];
         for (user of getData()) {
             let getValidDate = moment(user["DATE OF EMPLOYMENT"], "YYYY-MM-DD");
@@ -86,6 +123,11 @@ let reporter = {
 
         return users;
     }
+*/
+
+
+
+
 }
 
 

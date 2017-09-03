@@ -23,18 +23,24 @@ reporter.getUsersForGivenBranch('Atron Durban').then((durbanUsers) => {
     printResults(durbanUsers, "USERS FOR DURBAN");
 });
 
-let gautengUsers = reporter.getUsersForGivenBranch('Gauteng');
-printResults(gautengUsers, "USERS FOR GAUTENG");
+reporter.getUsersForGivenBranch('Gauteng').then((gautengUsers) => {
+    printResults(gautengUsers, "USERS FOR GAUTENG");
+});
 
-let supervisorWarrenAllanUsers = reporter.getUsersForGivenSupervisor('Warren Allan');
-printResults(supervisorWarrenAllanUsers, "USERS FOR SUPERVISOR WARREN ALLAN");
+reporter.getUsersForGivenSupervisor('Warren Allan').then((warrenSuperVisor) => {
+    printResults(warrenSuperVisor, "USERS FOR SUPERVISOR WARREN ALLAN");
+});
 
-let totalGautengUsersRE5Obtained = reporter.getUserCountRE5ObtainedForGivenBranch('Gauteng');
-printResults(totalGautengUsersRE5Obtained, "TOTAL GAUTENG USERS WITH RE5 OBTAINED");
+reporter.getUserCountRE5ObtainedForGivenBranch('Gauteng').then((countResult) => {
+    printResults(countResult,"TOTAL GAUTENG USERS WITH RE5 OBTAINED");
+});
 
-let totalGautengUsersRE5NotObtained = reporter.getUserCountRE5NotObtainedForGivenBranch('Gauteng');
-printResults(totalGautengUsersRE5NotObtained, "TOTAL GAUTENG USERS WITH RE5 OUTSTANDING");
 
-let usersEmployedBefore2014 = reporter.getUsersEmployedBeforeDate('2014-01-02');
-printResults(usersEmployedBefore2014, "USERS EMPLOYED BEFORE 2014");
+reporter.getUserCountRE5NotObtainedForGivenBranch('Gauteng').then((countResult) => {
+    printResults(countResult, "TOTAL GAUTENG USERS WITH RE5 OUTSTANDING");
+});
+
+reporter.getUsersEmployedBeforeDate('2014-01-02').then((usersEmployedBefore2014) => {
+    printResults(usersEmployedBefore2014, "USERS EMPLOYED BEFORE 2014");
+});
 
