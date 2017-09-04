@@ -7,7 +7,7 @@ let reporter = require('./reporter').reporter;
 
 let printResults = function (resultSet, heading) {
     let headerpadding = '-------------------------------------------------------------------'
-    heading ? console.log(headerpadding.substring(1,5) + ' ' + heading + ' ' + headerpadding.substring(1, headerpadding.length - heading.length )) : '';
+    heading ? console.log(headerpadding.substring(1, 5) + ' ' + heading + ' ' + headerpadding.substring(1, headerpadding.length - heading.length)) : '';
     if (Array.isArray(resultSet)) {
         for (result of resultSet)
         { console.log(result); }
@@ -32,7 +32,7 @@ reporter.getUsersForGivenSupervisor('Warren Allan').then((warrenSuperVisor) => {
 });
 
 reporter.getUserCountRE5ObtainedForGivenBranch('Gauteng').then((countResult) => {
-    printResults(countResult,"TOTAL GAUTENG USERS WITH RE5 OBTAINED");
+    printResults(countResult, "TOTAL GAUTENG USERS WITH RE5 OBTAINED");
 });
 
 

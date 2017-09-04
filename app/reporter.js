@@ -17,7 +17,7 @@ function formatDate(arrayInput, dateFieldName) {
 function filterOn(data, filterLabel, filterValue) {
     let users = [];
     for (user of data) {
-        if (user[filterLabel] === filterValue) 
+        if (user[filterLabel] === filterValue)
             users.push(user);
     }
     return users;
@@ -48,17 +48,17 @@ let reporter = {
                 let reportOut = filterOn(data, "branch", branch);
                 resolve(reportOut);
             });
-        });    
+        });
     },
 
     getUsersForGivenSupervisor: function (supervisor) {
         return new Promise((resolve, reject) => {
-                getDataAsync().then((data) => {
-                    let reportOut = filterOn(data, "supervisor", supervisor);
-                    resolve(reportOut);
+            getDataAsync().then((data) => {
+                let reportOut = filterOn(data, "supervisor", supervisor);
+                resolve(reportOut);
 
-                });
-});
+            });
+        });
     },
 
     getUserCountRE5ObtainedForGivenBranch: function (branch) {
@@ -103,27 +103,27 @@ let reporter = {
                 resolve(users);
             });
         });
- },
+    },
 
 
 
 
 
 
-/*
-    getUsersEmployedBeforeDate2: function (date) {
-        let users = [];
-        for (user of getData()) {
-            let getValidDate = moment(user["DATE OF EMPLOYMENT"], "YYYY-MM-DD");
-            if (getValidDate.isValid()) {
-                if (moment(user["DATE OF EMPLOYMENT"]) < moment(date))
-                    users.push(user);
+    /*
+        getUsersEmployedBeforeDate2: function (date) {
+            let users = [];
+            for (user of getData()) {
+                let getValidDate = moment(user["DATE OF EMPLOYMENT"], "YYYY-MM-DD");
+                if (getValidDate.isValid()) {
+                    if (moment(user["DATE OF EMPLOYMENT"]) < moment(date))
+                        users.push(user);
+                }
             }
+    
+            return users;
         }
-
-        return users;
-    }
-*/
+    */
 
 
 
