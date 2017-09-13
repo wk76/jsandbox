@@ -105,29 +105,6 @@ let reporter = {
         });
     },
 
-
-
-
-
-
-    /*
-        getUsersEmployedBeforeDate2: function (date) {
-            let users = [];
-            for (user of getData()) {
-                let getValidDate = moment(user["DATE OF EMPLOYMENT"], "YYYY-MM-DD");
-                if (getValidDate.isValid()) {
-                    if (moment(user["DATE OF EMPLOYMENT"]) < moment(date))
-                        users.push(user);
-                }
-            }
-    
-            return users;
-        }
-    */
-
-
-
-
 }
 
 
