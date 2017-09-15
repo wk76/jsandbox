@@ -9,7 +9,9 @@
     "async-test": "tape test/async-test.js | tap-spec"
   },
   "dependencies": {
+    "arangojs": "^5.7.0",
     "csvtojson": "^1.1.7",
+    "hapi": "^16.6.0",
     "moment": "^2.18.1"
   },
   "devDependencies": {

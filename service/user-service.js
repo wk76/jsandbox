@@ -36,9 +36,14 @@ let userService = {
             for (user of users) {
                 promises.push(this.createUser(user));
             }
-            Promise.all(promises);
-            resolve("Finished creating users"),
-                reject("Failed creating users")
+            Promise.all(promises).then((promisesResult) => {
+                //if (someErrorCondition) {
+                //    reject("Failed creating users");
+                //} else {
+                //    resolve("Finished creating users");
+                //}
+                resolve("Finished creating users");
+            });
         });
     },
 
@@ -56,8 +61,12 @@ let userService = {
     updateUser: function (idnumber, user) {
         return new Promise((resolve, reject) => {
             collectionUsers.update(idnumber, user);
-            resolve('User with ID NUmber ' + idnumber + ' updated successfully'),
-                reject('Failed to update user with ID Number ' + idnumber)
+            //if (someErrorCondition) {
+            //    reject('Failed to update user with ID Number ' + idnumber)
+            //} else {
+            //    resolve("Finished creating users");
+            //}
+            resolve('User with ID NUmber ' + idnumber + ' updated successfully');
         });
     },
 
