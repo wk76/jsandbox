@@ -58,6 +58,26 @@ let userService = {
 
     },
 
+    fetchUsersAll: function () {
+        return new Promise((resolve, reject) => {
+            collectionUsers.all()
+                .then(results => { resolve(results._result); }
+                )
+        }
+        );
+    },
+
+    fetchUsersBranch: function (branch) {
+        return new Promise((resolve, reject) => {
+            db.query(aqlQuery`
+            FOR user IN users FILTER user["branch"] == ${branch} RETURN user 
+            `).then((results) => {
+                    resolve(results._result);
+                });
+        });
+
+    },
+
     updateUser: function (idnumber, user) {
         return new Promise((resolve, reject) => {
             collectionUsers.update(idnumber, user);
@@ -138,6 +158,23 @@ let userService = {
         obj[dateFieldName] = moment(dateIn, ["DD-MM-YYYY", "YYYY-MM-DD", "DD/MM/YYYY", "YYYY/MM/DD"], true).format(dateFormat);
         return obj;
     },
+
+    countUsersPerBranch: function () {
+        return new Promise((resolve, reject) => {
+            db.query(aqlQuery`
+            FOR user IN users
+            COLLECT branch = user.branch
+            WITH COUNT INTO numUsers
+            RETURN  { branch, numUsers }
+            `).then((results) => {
+                    resolve(results._result);
+                });
+        });
+
+    },
+
+
+
 
 }
 

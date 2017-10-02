@@ -1,13 +1,15 @@
 
 const Hapi = require('hapi');
-const userService = require("../service/user-service.js").userService;
+const endPointHandlers = require("./endpointhandlers.js").endPointHandlers;
+const endPointHandlersFormatted = require("./endpointhandlersFormatted.js").endPointHandlersFormatted;
+const endPointHandlersMarketData = require("./endpointhandlers-marketdata.js").endPointHandlersMarketData;
 
 
 // 1) create a server with a host and port
 const server = new Hapi.Server();
-server.connection({ 
-    host: 'localhost', 
-    port: 7000 
+server.connection({
+    host: 'localhost',
+    port: 7000
 });
 
 
@@ -15,15 +17,11 @@ server.connection({
 // PATH = http://localhost:7000/user?idnumber=7606075213089
 
 // Add the route
-server.route({
-    method: 'GET',
-    path:'/user', 
-    //handler: endpointHandlers.getUser
-    handler: function (request, reply) {
-        return reply(userService.fetchUser(''));
-    }
-});
-
+server.route(
+    //endPointHandlers    
+    //endPointHandlersFormatted
+    endPointHandlersMarketData
+);
 
 
 

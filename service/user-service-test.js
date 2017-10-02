@@ -17,6 +17,7 @@ function getDataCSV() {
     });
 }
 
+/*
 // Create user (single)
 userService.createUser(sampleUser).then(
     error => {
@@ -43,6 +44,27 @@ userService.fetchUser('8707015044086').then((users) => {
     console.log(users);
 });
 
+
+// Fetch all users
+userService.fetchUsersAll().then((users) => {
+    console.log(users);
+});
+
+
+
+// Fetch users branch
+userService.fetchUsersBranch('Gauteng').then((users) => {
+    console.log(users);
+});
+*/
+
+// Count users per branch
+userService.countUsersPerBranch().then((users) => {
+    console.log(users);
+});
+
+
+/*
 // Update user
 userService.updateUser('7606075213089', sampleUserNew).then((status) => {
     console.log(status);
@@ -63,4 +85,4 @@ if (userService.idnumberValidation('7606075213089')) {
     console.log("ID Number is valid"); } else { 
         console.log("ID Number is not valid");
     }
-
+*/

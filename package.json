@@ -12,7 +12,8 @@
     "arangojs": "^5.7.0",
     "csvtojson": "^1.1.7",
     "hapi": "^16.6.0",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "unirest": "^0.5.1"
   },
   "devDependencies": {
     "tap-spec": "^4.1.1",
